@@ -1,0 +1,21 @@
+<%- include('../partials/header') %> 
+  <body>
+    <h1>New Run</h1>
+    <div>
+      <form action="/runs" method="POST">
+        <label>Distance in Miles:
+            <input name = "distance" type="number" min="0" required/> 
+        </label><br/>
+        <label>Time in Minutes:
+            <input name = "time" type="number" min="0" required/> 
+        </label><br/>
+        <label>Day of Run:
+            <input name = "day" type="datetime-local" required/> 
+        </label><br/>
+        <label>Additional Info:
+            <input name = "info" type="text"/> 
+        </label><br/>
+        <input type="submit" value="Add run"/>
+      </form>  
+  </body> 
+  <%- include('../partials/footer') %>       

@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+<body>
+  <h1>Runs List</h1>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Distance</th>
+          <th>Time</th>
+          <th>Pace</th>
+          <th>More Info</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% runs.forEach(function(run) { %>
+        <tr>
+          <% if (user && user._id.equals(run.user)) { %> 
+          <td><%= run.day %></td>
+          <td><%= run.distance %> miles</td>
+          <td><%= run.time %> minutes</td>
+          <td><%= run.time / run.distance%> minute miles</td>
+          <td><a href="/runs/<%= run._id %>">Info</a></td>
+          <% } %>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+<%- include('../partials/footer') %>

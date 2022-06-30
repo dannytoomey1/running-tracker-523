@@ -1,0 +1,27 @@
+<%- include('../partials/header') %> 
+  <body>
+    <h1>New Workout</h1>
+    <div>
+      <form action="/workouts" method="POST">
+        <label>Rep distance in meters:
+            <input name = "repDistance" type="number" min="100" required/> 
+        </label><br/>
+        <label>Goal pace/rep in seconds:
+            <input name = "goalPace" type="number" min="10" required/> 
+        </label><br/>
+        <label>Number of reps:
+            <input name = "numReps" type="number" min="2" max="25"required/> 
+        </label><br/>
+        <label>Break(seconds):
+            <input name = "break" type="number" min="30" max="900"required/> 
+        </label><br/>
+        <label>Day of Workout:
+            <input name = "day" type="datetime-local" required/> 
+        </label><br/>
+        <label>Additional Info:
+            <input name = "info" type="text"/> 
+        </label><br/>
+        <input type="submit" value="Add Workout"/>
+      </form>  
+  </body> 
+  <%- include('../partials/footer') %> 

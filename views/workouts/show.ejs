@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+
+<h1>Workout Info</h1>
+<container>
+  <div>Day: </div>
+  <div><%= workout.day %></div><br/>
+  <div>Rep Distance(meters)</div>
+  <div><%= workout.repDistance %>m </div><br/>
+  <div>Goal Pace(seconds): </div>
+  <div><%= workout.goalPace %>s </div><br/>
+  <div>Number of Reps: </div>
+  <div><%= workout.numReps %> </div><br/>
+  <div>Break (seconds): </div>
+  <div><%= workout.break %>s </div><br/>
+  <div>Additional Info: </div>
+  <div><%= workout.info %> </div><br/>
+  <%if(workout.repTimes.times[0]) {%>
+    <div>Rep Times: </div>
+    <div><%= workout.repTimes.times %> </div><br/>
+  <% } %> 
+</container><br/><br/>
+
+<%if (user && user._id.equals(workout.user)) { %>
+    <form action="/workouts/<%= workout._id %>?_method=DELETE" method="POST">
+      <input type="submit" value = "Delete Workout"></input>
+    </form><br/>
+
+    <body>
+        <h1>Edit Rep Times</h1>
+        <div>
+        <form action="/workouts/<%= workout._id %>?_method=PUT" method="POST">
+            <%for(let i = 0; i < workout.numReps; i++) {%>
+                <input type = "number" name = 'repTimes' min="10" required></input>
+            <% } %>   
+            <input type = "submit" value = 'Add Rep Times'></input>
+        </form>
+<% } %>
+
+<%- include('../partials/footer') %>

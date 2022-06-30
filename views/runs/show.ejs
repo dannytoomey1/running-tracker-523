@@ -1,0 +1,44 @@
+<%- include('../partials/header') %>
+
+<h1>Run Info</h1>
+<container>
+  <div>Day: </div>
+  <div><%= run.day %> </div><br/>
+  <div>Distance(Miles):</div>
+  <div><%= run.distance %> </div><br/>
+  <div>Time(Min.): </div>
+  <div><%= run.time %> </div><br/>
+  <div>Pace (avg mile in min): </div>
+  <div><%= run.time / run.distance %> </div><br/>
+  <div>Additional Info: </div>
+  <div><%= run.info %> </div><br/>
+</container><br/><br/>
+
+<%if (user && user._id.equals(run.user)) { %>
+  <form action="/runs/<%= run._id %>?_method=DELETE" method="POST">
+    <input type="submit" value = "Delete Run"></input>
+  </form><br/>
+
+  <body>
+    <h1>Edit Run</h1>
+    <div>
+      <form action="/runs/<%= run._id %>?_method=PUT" method="POST">
+        <label>Distance in Miles:
+            <input value = <%= run.distance%> name = "distance" type="number" min="0" required /> 
+        </label><br/>
+        <label>Time in Minutes:
+            <input value = <%= run.time %> name = "time" type="number" min="0" required /> 
+        </label><br/>
+        <label>Day of Run:
+            <input value = <%= run.day.Date %> name = "day" type="datetime-local" required /> 
+        </label><br/>
+        <label>Additional Info:
+            <input name = "info" type="text" value = <%= run.info %> /> 
+        </label><br/>
+        <input type="submit" value="Edit run"/>
+      </form>  
+  </body>
+  <% } %>   
+
+
+<%- include('../partials/footer') %>

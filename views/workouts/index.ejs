@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+<body>
+  <h1>Workouts List</h1>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Rep Distance</th>
+          <th>Goal Pace</th>
+          <th>Number of Reps</th>
+          <th>Break</th>
+          <th>More Info</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% workouts.forEach(function(workout) { %>
+        <tr>
+          <% if (user && user._id.equals(workout.user)) { %>
+          <td><%= workout.day %></td>
+          <td><%= workout.repDistance %>m</td>
+          <td><%= workout.goalPace%>s</td>
+          <td><%= workout.numReps%></td>
+          <td><%= workout.break%></td>
+          <td><a href="/workouts/<%= workout._id %>">Info</a></td>
+          <% } %>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+<%- include('../partials/footer') %>
