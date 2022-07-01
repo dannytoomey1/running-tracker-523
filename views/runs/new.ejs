@@ -15,7 +15,8 @@
         <label>Additional Info:
             <input name = "info" type="text"/> 
         </label><br/>
-        <input type="submit" value="Add run"/>
+        <% if (user) { %>
+          <input type="submit" value="Add run"/>  <% } %>
       </form>  
   </body> 
   <%- include('../partials/footer') %>       
