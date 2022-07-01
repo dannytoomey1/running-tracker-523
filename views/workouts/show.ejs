@@ -25,7 +25,7 @@
       <input type="submit" value = "Delete Workout"></input>
     </form><br/>
 
-    <body>
+    <body class = "workEdit">
         <h1>Edit Rep Times</h1>
         <div>
         <form action="/workouts/<%= workout._id %>?_method=PUT" method="POST">
@@ -34,6 +34,8 @@
             <% } %>   
             <input type = "submit" value = 'Add Rep Times'></input>
         </form>
+        </div>
+      </body>  
 <% } %>
 
 <%- include('../partials/footer') %>

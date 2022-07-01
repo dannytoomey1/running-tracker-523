@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <h1>Run Info</h1>
-<container>
+<container class = "runShow">
   <div>Day: </div>
   <div><%= run.day %> </div><br/>
   <div>Distance(Miles):</div>
@@ -19,7 +19,7 @@
     <input type="submit" value = "Delete Run"></input>
   </form><br/>
 
-  <body>
+  <body class = "runEdit">
     <h1>Edit Run</h1>
     <div>
       <form action="/runs/<%= run._id %>?_method=PUT" method="POST">

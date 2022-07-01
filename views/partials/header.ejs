@@ -9,11 +9,51 @@
   </head>
 <nav>
     <% if (user) { %>
-      <a href="/logout">LOG OUT</a>
-      <a href="/runs/new">Add Run</a>
-      <a href="/runs/index">View Runs</a>
-      <a href="/workouts/new">Add Workout</a>
-      <a href="/workouts/index">View Workouts</a>
+      <a href="/logout" class = "logout">LOG OUT&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+      <script>
+        function runFunction() {
+          document.getElementById("myRundown").classList.toggle("show");
+        }
+        function workFunction() {
+          document.getElementById("myWorkdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+          if (!event.target.matches('.runbtn')) {
+            var rundowns = document.getElementsByClassName("rundown-content");
+            var i;
+            for (i = 0; i < rundowns.length; i++) {
+              var openRundown = rundowns[i];
+              if (openRundown.classList.contains('show')) {
+                openRundown.classList.remove('show');
+              }
+             }
+          }
+          if (!event.target.matches('.workbtn')) {
+            var workdowns = document.getElementsByClassName("workdown-content");
+            var i;
+            for (i = 0; i < workdowns.length; i++) {
+              var openWorkdown = workdowns[i];
+              if (openWorkdown.classList.contains('show')) {
+                openWorkdown.classList.remove('show');
+              }
+             }
+          }
+        }
+      </script>
+      <div class="rundown">
+        <button onclick="runFunction()" class="runbtn">Runs</button>
+        <div id = myRundown class = "rundown-content">
+          <a href="/runs/new">Add Run</a>
+          <a href="/runs/index">View Runs</a>
+        </div>
+      </div>  
+      <div class="workdown">
+        <button onclick="workFunction()" class="workbtn">Workouts</button>  
+        <div id = myWorkdown class = "workdown-content">  
+          <a href="/workouts/new">Add Workout</a>
+          <a href="/workouts/index">View Workouts</a>
+        </div>
+      </div>    
     <% } else { %>
       <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
     <% } %>

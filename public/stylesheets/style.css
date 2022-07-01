@@ -2,18 +2,83 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+h1.first {
+  align-content: center;
+  font-size: 500;
+}
+
+p.second {
+  align-content: center;
+  font-size: 300;
+}
 
 a {
   color: #00B7FF;
 }
 
-.login {
+.runEdit, .workEdit {
+  flex: content;
+  flex-direction: column;
+  align-items: top;
+  justify-content: right;
+}
+
+.runShow {
+  flex: content;
+  flex-direction: column;
+  align-items: left;
+}
+
+.login, .logout {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: right;
+  align-items: right;
   height: 34px;
 }
 
-.login img {
+
+.login img, .logout img {
   height: 30px;
 }
+
+nav {
+  margin-bottom: 75px;
+}
+
+.runbtn, .workbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.runbtn:hover, .runbtn:focus .workbtn:hover, .workbtn:focus {
+  background-color: #2980B9;
+}
+
+.rundown-content, .workdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.rundown, .workdown {
+  position: relative;
+  display: inline-block;
+}
+
+.rundown-content a, .workdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.rundown-content a:hover, .workdown-content a:hover{background-color: #ddd}
+
+.show {display:block;}
